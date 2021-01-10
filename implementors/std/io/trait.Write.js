@@ -1,0 +1,4 @@
+(function() {var implementors = {};
+implementors["openssl"] = [{"text":"impl Write for Hasher","synthetic":false,"types":[]},{"text":"impl&lt;'a&gt; Write for Signer&lt;'a&gt;","synthetic":false,"types":[]},{"text":"impl&lt;'a&gt; Write for Verifier&lt;'a&gt;","synthetic":false,"types":[]},{"text":"impl&lt;S:&nbsp;Read + Write&gt; Write for SslStream&lt;S&gt;","synthetic":false,"types":[]}];
+implementors["protobuf"] = [{"text":"impl&lt;'a&gt; Write for CodedOutputStream&lt;'a&gt;","synthetic":false,"types":[]}];
+if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

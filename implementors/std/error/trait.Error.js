@@ -1,0 +1,9 @@
+(function() {var implementors = {};
+implementors["openssl"] = [{"text":"impl Error for ErrorStack","synthetic":false,"types":[]},{"text":"impl Error for Error","synthetic":false,"types":[]},{"text":"impl Error for Error","synthetic":false,"types":[]},{"text":"impl&lt;S:&nbsp;Debug&gt; Error for HandshakeError&lt;S&gt;","synthetic":false,"types":[]},{"text":"impl Error for X509VerifyResult","synthetic":false,"types":[]}];
+implementors["proc_macro2"] = [{"text":"impl Error for LexError","synthetic":false,"types":[]}];
+implementors["protobuf"] = [{"text":"impl Error for ProtobufError","synthetic":false,"types":[]}];
+implementors["rust_cast"] = [{"text":"impl Error for SslError","synthetic":false,"types":[]},{"text":"impl Error for Error","synthetic":false,"types":[]}];
+implementors["serde"] = [{"text":"impl Error for Error","synthetic":false,"types":[]}];
+implementors["serde_json"] = [{"text":"impl Error for Error","synthetic":false,"types":[]}];
+implementors["syn"] = [{"text":"impl Error for Error","synthetic":false,"types":[]}];
+if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()
