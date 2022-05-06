@@ -16,7 +16,7 @@ jobs:
     strategy:
       matrix:
         rust: [stable]
-        target: [aarch64-unknown-linux-gnu]
+        target: [armv7-linux-androideabi, aarch64-linux-android]
     steps:
       - uses: actions/checkout@v3
         name: Checkout
@@ -73,6 +73,6 @@ jobs:
       - uses: actions/upload-artifact@v2
         name: Upload APK as artifact
         with:
-          name: caster
-          path: target/release/examples/rust_caster
+          name: caster_${{ matrix.target }}
+          path: target/${{ matrix.target }}/release/examples/rust_caster
           retention-days: 3
