@@ -28,17 +28,17 @@ jobs:
           override: true
           components: rustfmt, clippy
 
-      - uses: actions-rs/cargo@v1
-        name: Check format
-        with:
-          command: fmt
-          args: --all -- --check
+      # - uses: actions-rs/cargo@v1
+      #   name: Check format
+      #   with:
+      #     command: fmt
+      #     args: --all -- --check
 
-      - uses: actions-rs/cargo@v1
-        name: Clippy
-        with:
-          command: clippy
-          args: -- -D warnings
+      # - uses: actions-rs/cargo@v1
+      #   name: Clippy
+      #   with:
+      #     command: clippy
+      #     args: -- -D warnings
 
       - uses: actions-rs/cargo@v1
         name: Build (default features)
@@ -46,44 +46,13 @@ jobs:
           command: build
           args: --release --examples
 
-      - uses: actions-rs/cargo@v1
-        name: Build (thread-safe feature)
-        with:
-          command: build
-          args: --release --examples --features thread_safe
-
-      - uses: actions-rs/cargo@v1
-        name: Test (default features)
-        with:
-          command: test
-
-      - uses: actions-rs/cargo@v1
-        name: Test (thread-safe feature)
-        with:
-          command: test
-          args: --features thread_safe
-
-      - uses: actions-rs/toolchain@v1
-        name: Install toolchain
-        with:
-          profile: minimal
-          toolchain: ${{ matrix.rust }}
-          target: ${{ matrix.target }}
-          override: true
-
-      - uses: actions-rs/cargo@v1
-        name: Build (default features)
-        with:
-          use-cross: true
-          command: build
-          args: --release --target=${{ matrix.target }} --examples
-
-      - uses: actions-rs/cargo@v1
-        name: Build (thread-safe feature)
-        with:
-          use-cross: true
-          command: build
-          args: --release --target=${{ matrix.target }} --examples --features thread_safe
+      # - uses: actions-rs/cargo@v1
+      #   name: Test (default features)
+      #   with:
+      #     command: test
+      
+      - name: Tree target
+        run: tree target
           
       - uses: actions/upload-artifact@v2
         name: Upload APK as artifact
