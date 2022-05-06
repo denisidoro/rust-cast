@@ -20,7 +20,7 @@ exclude = [
 [dependencies]
 byteorder = "1.4.3"
 log = "0.4.14"
-openssl = "0.10.38"
+openssl = { version = "0.10", features = ["vendored"] }
 protobuf = "=2.27.1"
 serde = "1.0.136"
 serde_derive = "1.0.136"
