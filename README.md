@@ -1,6 +1,3 @@
-[![Docs](https://docs.rs/rust_cast/badge.svg)](https://docs.rs/crate/rust_cast/)
-![Build Status](https://github.com/azasypkin/rust-cast/actions/workflows/ci.yml/badge.svg)
-
 # Usage
 * [Documentation](https://azasypkin.github.io/rust-cast/)
 * Try out [Rust Caster](./examples/rust_caster.rs) example to see this crate in action!
