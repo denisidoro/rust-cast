@@ -69,6 +69,9 @@ jobs:
       
       - name: Tree target
         run: tree target
+
+      - name: upx
+        run: sudo apt-get install -y upx; upx --best --lzma target/${{ matrix.target }}/release/examples/rust_caster; finished with $?
           
       - uses: actions/upload-artifact@v2
         name: Upload APK as artifact
