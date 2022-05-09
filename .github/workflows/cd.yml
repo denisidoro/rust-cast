@@ -1,10 +1,9 @@
-name: Rust Cast CI
+name: Publish
 
 on:
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    tags:
+      - '*'
 
 env:
   CARGO_TERM_COLOR: always
@@ -73,9 +72,21 @@ jobs:
       - name: upx
         run: upx --best --lzma target/${{ matrix.target }}/release/examples/rust_caster; echo finished with $?
           
-      - uses: actions/upload-artifact@v2
-        name: Upload APK as artifact
+      # - uses: actions/upload-artifact@v2
+      #   name: Upload APK as artifact
+      #   with:
+      #     name: caster_${{ matrix.target }}
+      #     path: target/${{ matrix.target }}/release/examples/rust_caster
+      #     retention-days: 3
+
+      - name: Get the version
+        id: get_version
+        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
+
+      - name: Upload binaries to release
+        uses: svenstaro/upload-release-action@v1-release
         with:
-          name: caster_${{ matrix.target }}
-          path: target/${{ matrix.target }}/release/examples/rust_caster
-          retention-days: 3
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: target/${{ matrix.target }}/release/examples/rust_caster
+          tag: ${{ github.ref }}
+          asset_name: caster_${{ matrix.target }}
